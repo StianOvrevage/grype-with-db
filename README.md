@@ -1,5 +1,7 @@
 # grype-with-db
 
+DockerHub: [stianovrevage/grype-with-db](hub.docker.com/r/stianovrevage/grype-with-db)
+
 Regular (Monday, Wednesday, Friday, Sunday) builds of `grype` docker image with built-in database. [Grype](https://github.com/anchore/grype) is "A vulnerability scanner for container images and filesystems."
 
 ## Background
@@ -34,6 +36,11 @@ Runtimes are slightly longer due to uncompressing the database, but that is made
 
 Numbers for the standard `grype` image, as well as with database both compressed and uncompressed. Two runs, the first one includes pulling the image from Docker Hub while the second executes the already downloaded image:
 
-    time docker run --rm -it anchore/grype:latest alpine:latest                         # First run, incl pull: 14.7s   Second run: 12.2s
-    time docker run --rm -it stianovrevage/grype-with-db:uncompressed alpine:latest     # First run, incl pull: 16.1s   Second run: 2.6s
-    time docker run --rm -it stianovrevage/grype-with-db alpine:latest                  # First run, incl pull: 12.2s   Second run: 3.5s
+    # First run (incl pull): 14.7s   Second run: 12.2s
+    time docker run --rm -it anchore/grype:latest alpine:latest
+    
+    # First run (incl pull): 16.1s   Second run: 2.6s
+    time docker run --rm -it stianovrevage/grype-with-db:uncompressed alpine:latest
+
+    # First run (incl pull): 12.2s   Second run: 3.5s
+    time docker run --rm -it stianovrevage/grype-with-db alpine:latest
