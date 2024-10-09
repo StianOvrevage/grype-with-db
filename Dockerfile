@@ -18,10 +18,10 @@ RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh |
 
 # This will make grype not update database automatically, and fail if the age of the database is more than the default of 5 days (120 hours).
 # See also https://github.com/anchore/grype#data-staleness
-ENV GRYPE_DB_AUTO_UPDATE false
-ENV GRYPE_DB_MAX_ALLOWED_BUILT_AGE 120h
+ENV GRYPE_DB_AUTO_UPDATE=false
+ENV GRYPE_DB_MAX_ALLOWED_BUILT_AGE=120h
 
-ENV GRYPE_DB_CACHE_DIR /grype/db/
+ENV GRYPE_DB_CACHE_DIR=/grype/db/
 
 RUN /usr/local/bin/grype db update \
     && tar --use-compress-program "zstd -9 -T0" -cvpf grype-db.tar.zst db/ \

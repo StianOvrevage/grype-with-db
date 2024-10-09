@@ -4,6 +4,9 @@ name: docker-build-push
 
 on:
   push:
+  schedule:
+      # Run pipeline every Monday, Wednesday, Friday and Sunday at midnight
+    - cron:  '0 0 * * 1,3,5,7'
 
 jobs:
   docker:
@@ -26,4 +29,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: grype-with-db:latest
+          tags: stianovrevage/grype-with-db:latest
