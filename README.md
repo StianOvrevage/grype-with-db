@@ -43,4 +43,4 @@ Numbers for the standard `grype` image, as well as with database both compressed
     time docker run --rm -it stianovrevage/grype-with-db:uncompressed alpine:latest
 
     # First run (incl pull): 12.2s   Second run: 3.5s
-    time docker run --rm -it stianovrevage/grype-with-db alpine:latest
+    time docker run --rm -it stianovrevage/grype-with-db:latest alpine:latest

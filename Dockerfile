@@ -1,7 +1,7 @@
 # https://github.com/anchore/grype/blob/main/Dockerfile
 # FROM anchore/grype:latest
 
-FROM alpine:3.20
+FROM alpine:latest
 
 WORKDIR /grype
 
